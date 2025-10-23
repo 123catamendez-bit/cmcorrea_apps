@@ -112,14 +112,14 @@ proyectos = [
     ("🛰️ Visión Orbital", "Sube una imagen y permite que el radar detecte objetos flotando.", "https://tmcata.streamlit.app", "🔭 Iniciar Visión Orbital"),
     ("🪶 Traductor de Ecos", "Convierte tus transmisiones de voz en texto interplanetario.", "https://traductor-cata.streamlit.app", "🛰️ Abrir Traductor"),
     ("📡 Escáner Galáctico", "Analiza archivos con IA estelar.", "https://textoesp.streamlit.app/", "📄 Analizar Archivo"),
-    ("👁️ Detector Alienígena", "Escanea rostros del cosmos.", "https://ocr-isa2.streamlit.app/", "👽 Activar Detección"),
-    ("🔤 OCR Estelar", "Convierte texto desde imágenes espaciales.", "https://isavinasco.streamlit.app/", "🪞 Iniciar OCR"),
-    ("🗣️ Chat Cósmico con PDF", "Habla con tus archivos y recibe respuestas del universo.", "https://chatpdfejercicioisa.streamlit.app/", "📡 Conectar Chat"),
+    ("👁️ Detector Alienígena", "Escanea rostros del cosmos.", "https://ocr-audio-cata.streamlit.app", "👽 Activar Detección"),
+    ("🔤 OCR Estelar", "Convierte texto desde imágenes espaciales.", "https://ocrcata.streamlit.app", "🪞 Iniciar OCR"),
+    ("🗣️ Chat Cósmico con PDF", "Habla con tus archivos y recibe respuestas del universo.", "https://chatcata.streamlit.app", "📡 Conectar Chat"),
     ("🌠 Historias Estelares", "Dibuja algo y deja que la IA genere una historia cósmica.", "https://handcata.streamlit.app", "🌟 Crear Historia"),
     ("🎙️ Control por Voz", "Controla la nave mediante comandos de voz.", "https://ctrlvoice-cata.streamlit.app", "🎧 Activar Control"),
     ("🖌️ Reconocimiento de Dibujo", "La IA intenta descifrar tu figura celeste.", "https://hist-infcata.streamlit.app", "🖍️ Reconocer Dibujo"),
-    ("💡 Control de Luz", "Controla sistemas luminosos interestelares.", "https://enviarcmqttisa.streamlit.app/", "💫 Encender Luz"),
-    ("📖 Explorador de Textos", "Analiza textos de cualquier idioma.", "https://isabela-vinasco-docs.streamlit.app/", "📚 Iniciar Exploración")
+    ("💡 Control de Luz", "Controla sistemas luminosos interestelares.", "https://sendcmqtt-cata.streamlit.app", "💫 Encender Luz"),
+    ("📖 Explorador de Textos", "Analiza textos de cualquier idioma.", "https://tf-idfcata.streamlit.app", "📚 Iniciar Exploración")
 ]
 
 # Distribuir en 3 columnas
