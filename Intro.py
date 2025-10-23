@@ -111,7 +111,7 @@ proyectos = [
     ("🖐️ Gestos Cósmicos", "Controla tu nave espacial mediante visión artificial.", "https://yolocata.streamlit.app", "🪐 Activar Gestos"),
     ("🛰️ Visión Orbital", "Sube una imagen y permite que el radar detecte objetos flotando.", "https://tmcata.streamlit.app", "🔭 Iniciar Visión Orbital"),
     ("🪶 Traductor de Ecos", "Convierte tus transmisiones de voz en texto interplanetario.", "https://traductor-cata.streamlit.app", "🛰️ Abrir Traductor"),
-    ("📡 Escáner Galáctico", "Analiza archivos con IA estelar.", "https://textoesp.streamlit.app/", "📄 Analizar Archivo"),
+    ("📡 Escáner Galáctico", "Analiza archivos con IA estelar.", "https://tdfesp-cata.streamlit.app", "📄 Analizar Archivo"),
     ("👁️ Detector Alienígena", "Escanea rostros del cosmos.", "https://ocr-audio-cata.streamlit.app", "👽 Activar Detección"),
     ("🔤 OCR Estelar", "Convierte texto desde imágenes espaciales.", "https://ocrcata.streamlit.app", "🪞 Iniciar OCR"),
     ("🗣️ Chat Cósmico con PDF", "Habla con tus archivos y recibe respuestas del universo.", "https://chatcata.streamlit.app", "📡 Conectar Chat"),
