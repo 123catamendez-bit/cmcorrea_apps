@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+# from PIL import Image   # ← Descomenta esto cuando ya tengas las imágenes
 
 # --- Configuración general ---
 st.set_page_config(page_title="IA Galáctica 🚀", layout="wide")
@@ -43,8 +43,10 @@ with st.sidebar:
 
 # --- Aplicación 1 ---
 st.subheader("🪐 Mi Primera Misión")
-image = Image.open('app1.jpg')  
-st.image(image, width=200)
+
+# image = Image.open('app1.jpg')  # ← Agrega tu imagen aquí más adelante
+# st.image(image, width=200)
+
 st.write("Mi primer lanzamiento al espacio del código. Una app sencilla, pero el inicio de un viaje intergaláctico hacia la Inteligencia Artificial.")
 st.markdown(
     """
@@ -72,8 +74,8 @@ with col1:
     st.markdown("<div style='text-align:center'>", unsafe_allow_html=True)
 
     st.subheader("🌠 Voz Estelar (Texto a Voz)")
-    image = Image.open('texto_avoz.jpg')
-    st.image(image, width=190)
+    # image = Image.open('texto_avoz.jpg')
+    # st.image(image, width=190)
     st.write("Convierte tus pensamientos en voz galáctica. Ideal para explorar nuevos idiomas del universo digital.")
     st.markdown(
         """
@@ -95,8 +97,8 @@ with col1:
     )
 
     st.subheader("💫 Radar de Emociones")
-    image = Image.open('sentimientos.jpg')
-    st.image(image, width=200)
+    # image = Image.open('sentimientos.jpg')
+    # st.image(image, width=200)
     st.write("Analiza las emociones ocultas en tus mensajes. ¿Estás orbitando la alegría, la calma o el caos?")
     st.markdown(
     """
@@ -118,8 +120,8 @@ with col1:
     )
 
     st.subheader("🖐️ Gestos Cósmicos")
-    image = Image.open('gesto.jpg')
-    st.image(image, width=200)
+    # image = Image.open('gesto.jpg')
+    # st.image(image, width=200)
     st.write("Deja que tus movimientos hablen por ti. Controla la nave con gestos captados por visión espacial de IA.")
     st.markdown(
     """
@@ -141,8 +143,8 @@ with col1:
     )
 
     st.subheader("🛰️ Visión Orbital (Reconocimiento de Objetos)")
-    image = Image.open('vision_app.jpg')
-    st.image(image, width=200)
+    # image = Image.open('vision_app.jpg')
+    # st.image(image, width=200)
     st.write("Sube una imagen y deja que el radar de IA detecte qué objetos flotan en tu universo visual.")
     st.markdown(
     """
@@ -170,8 +172,8 @@ with col2:
     st.markdown("<div style='text-align:center'>", unsafe_allow_html=True)
 
     st.subheader("🪶 Traductor de Ecos (Audio a Texto)")
-    image = Image.open('audio_atexto.jpg')
-    st.image(image, width=200)
+    # image = Image.open('audio_atexto.jpg')
+    # st.image(image, width=200)
     st.write("Convierte mensajes de audio en texto estelar. Ideal para descifrar transmisiones interplanetarias.")
     st.markdown(
     """
@@ -193,8 +195,8 @@ with col2:
     )
 
     st.subheader("📡 Escáner de Documentos Galácticos")
-    image = Image.open('analisis_texto.jpg')
-    st.image(image, width=200)
+    # image = Image.open('analisis_texto.jpg')
+    # st.image(image, width=200)
     st.write("Explora documentos antiguos de civilizaciones digitales y descubre sus secretos con IA avanzada.")
     st.markdown(
     """
@@ -216,8 +218,8 @@ with col2:
     )
 
     st.subheader("👁️ Detector de Rostros Alienígenas")
-    image = Image.open('OCR.jpg')
-    st.image(image, width=200)
+    # image = Image.open('OCR.jpg')
+    # st.image(image, width=200)
     st.write("Escanea imágenes en busca de rostros conocidos (o desconocidos) por la IA interplanetaria.")
     st.markdown(
     """
@@ -245,8 +247,8 @@ with col3:
     st.markdown("<div style='text-align:center'>", unsafe_allow_html=True)
 
     st.subheader("🔤 OCR Estelar")
-    image = Image.open('ocr_final.jpg')
-    st.image(image, width=200)
+    # image = Image.open('ocr_final.jpg')
+    # st.image(image, width=200)
     st.write("Convierte imágenes en texto legible desde cualquier rincón de la galaxia. Rápido, preciso y futurista.")
     st.markdown(
     """
@@ -268,8 +270,8 @@ with col3:
     )
 
     st.subheader("🗣️ Chat Cósmico con PDF")
-    image = Image.open('chat_pdf.jpg')
-    st.image(image, width=200)
+    # image = Image.open('chat_pdf.jpg')
+    # st.image(image, width=200)
     st.write("Habla con los archivos de tu nave. La IA interpreta tus documentos y responde como un copiloto digital.")
     st.markdown(
     """
@@ -291,8 +293,8 @@ with col3:
     )
 
     st.subheader("🌌 Creador de Historias Estelares")
-    image = Image.open('historia.jpg')
-    st.image(image, width=200)
+    # image = Image.open('historia.jpg')
+    # st.image(image, width=200)
     st.write("Dibuja algo y deja que la IA cree una historia galáctica basada en tu arte. Donde cada trazo genera una nueva aventura.")
     st.markdown(
     """
