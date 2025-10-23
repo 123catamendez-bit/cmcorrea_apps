@@ -64,39 +64,26 @@ h1, h2, h3, p {
 
 /* Tarjetas */
 .card {
-  background-color: rgba(25, 20, 50, 0.85);
-  border-radius: 20px;
+  background-color: rgba(25, 20, 50, 0.9);
+  border-radius: 22px;
   padding: 25px;
-  margin: 15px 0;
+  margin: 20px 10px;
   box-shadow: 0 0 25px rgba(150, 100, 255, 0.25);
   text-align: center;
-  transition: all 0.5s ease;
-  animation: fadeIn 1.5s ease;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .card:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 35px rgba(200, 150, 255, 0.4);
+  box-shadow: 0 0 40px rgba(200, 150, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Animación de aparición */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Imágenes */
-img {
+/* Imagen dentro del card */
+.card img {
   border-radius: 15px;
-  object-fit: cover;
-  height: 220px;
-  width: 100%;
-  box-shadow: 0 0 15px rgba(100, 100, 255, 0.3);
-  transition: 0.3s;
-}
-img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 25px rgba(200, 150, 255, 0.5);
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
 }
 
 /* Botones */
@@ -104,17 +91,15 @@ button {
   background: linear-gradient(90deg, #a770ef, #cf8bf3, #fdb99b);
   color: white;
   border: none;
-  padding: 12px 28px;
+  padding: 12px 24px;
   border-radius: 12px;
   font-size: 16px;
   cursor: pointer;
   transition: 0.4s;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 button:hover {
   background: linear-gradient(90deg, #fdb99b, #cf8bf3, #a770ef);
-  transform: scale(1.07);
-  box-shadow: 0 0 20px rgba(255, 200, 255, 0.4);
+  transform: scale(1.05);
 }
 </style>
 
@@ -137,23 +122,38 @@ with st.sidebar:
 # --- CONFIGURACIÓN DE COLUMNAS ---
 col1, col2, col3 = st.columns(3, gap="large")
 
-# --- PROYECTOS ---
+# --- TUS PROYECTOS ORIGINALES ---
 proyectos = [
-    ("🚀 Mi Primera Misión", "Mi primer lanzamiento hacia el espacio del código.", "https://introcata.streamlit.app", "🌌 Lanzar Misión", "al.jpg"),
-    ("🌠 Voz Estelar", "Convierte tus pensamientos en ondas sonoras cósmicas.", "https://texto-audio-cata.streamlit.app", "🎤 Activar Voz Estelar", "1.jpg"),
-    ("💫 Radar de Energía", "Analiza la energía emocional de tus mensajes.", "https://txtblobcata.streamlit.app", "💭 Escanear Energía", "2.jpg"),
-    ("🖐️ Gestos Cósmicos", "Controla tu nave mediante visión artificial.", "https://yolocata.streamlit.app", "🪐 Activar Gestos", "3.jpg"),
-    ("🛰️ Visión Orbital", "Sube una imagen y detecta objetos flotando en el espacio.", "https://tmcata.streamlit.app", "🔭 Iniciar Visión Orbital", "4.jpg"),
-    ("🪶 Traductor de Ecos", "Convierte tus transmisiones de voz en texto interplanetario.", "https://traductor-cata.streamlit.app", "🛰️ Abrir Traductor", "5.jpg"),
-    ("📡 Escáner Galáctico", "Analiza archivos con IA estelar.", "https://tdfesp-cata.streamlit.app", "📄 Analizar Archivo", "6.jpg"),
-    ("👁️ Detector Alienígena", "Escanea rostros del cosmos y detecta seres de otra dimensión.", "https://ocr-audio-cata.streamlit.app", "👽 Activar Detección", "ali.jpg"),
-    ("🔤 OCR Estelar", "Convierte texto desde imágenes espaciales.", "https://ocrcata.streamlit.app", "🪞 Iniciar OCR", "7.jpg"),
-    ("🗣️ Chat Cósmico con PDF", "Habla con tus archivos y recibe respuestas del universo.", "https://chatcata.streamlit.app", "📡 Conectar Chat", "8.jpg"),
-    ("🌠 Historias Estelares", "Dibuja algo y deja que la IA cree una historia cósmica.", "https://handcata.streamlit.app", "🌟 Crear Historia", "9.jpg"),
-    ("🎙️ Control por Voz", "Controla la nave mediante comandos de voz.", "https://ctrlvoice-cata.streamlit.app", "🎧 Activar Control", "10.jpg"),
-    ("🖌️ Reconocimiento de Dibujo", "La IA intenta descifrar tu figura celeste.", "https://hist-infcata.streamlit.app", "🖍️ Reconocer Dibujo", "11.jpg"),
-    ("💡 Control de Luz", "Activa sistemas luminosos interestelares.", "https://sendcmqtt-cata.streamlit.app", "💫 Encender Luz", "12.jpg"),
-    ("📖 Explorador de Textos", "Analiza textos de cualquier idioma con poder cósmico.", "https://tf-idfcata.streamlit.app", "📚 Iniciar Exploración", "13.jpg")
+    ("🚀 Mi Primera Misión", "Mi primer lanzamiento hacia el espacio del código.",
+     "https://introcata.streamlit.app", "🌌 Lanzar Misión", "al.jpg"),
+    ("🌠 Voz Estelar", "Convierte tus pensamientos en ondas sonoras cósmicas.",
+     "https://texto-audio-cata.streamlit.app", "🎤 Activar Voz Estelar", "1.jpg"),
+    ("💫 Radar de Energía", "Analiza la energía emocional de tus mensajes.",
+     "https://txtblobcata.streamlit.app", "💭 Escanear Energía", "2.jpg"),
+    ("🖐️ Gestos Cósmicos", "Controla tu nave mediante visión artificial.",
+     "https://yolocata.streamlit.app", "🪐 Activar Gestos", "3.jpg"),
+    ("🛰️ Visión Orbital", "Sube una imagen y detecta objetos flotando en el espacio.",
+     "https://tmcata.streamlit.app", "🔭 Iniciar Visión Orbital", "4.jpg"),
+    ("🪶 Traductor de Ecos", "Convierte tus transmisiones de voz en texto interplanetario.",
+     "https://traductor-cata.streamlit.app", "🛰️ Abrir Traductor", "5.jpg"),
+    ("📡 Escáner Galáctico", "Analiza archivos con IA estelar.",
+     "https://tdfesp-cata.streamlit.app", "📄 Analizar Archivo", "6.jpg"),
+    ("👁️ Detector Alienígena", "Escanea rostros del cosmos y detecta seres de otra dimensión.",
+     "https://ocr-audio-cata.streamlit.app", "👽 Activar Detección", "ali.jpg"),
+    ("🔤 OCR Estelar", "Convierte texto desde imágenes espaciales.",
+     "https://ocrcata.streamlit.app", "🪞 Iniciar OCR", "7.jpg"),
+    ("🗣️ Chat Cósmico con PDF", "Habla con tus archivos y recibe respuestas del universo.",
+     "https://chatcata.streamlit.app", "📡 Conectar Chat", "8.jpg"),
+    ("🌠 Historias Estelares", "Dibuja algo y deja que la IA cree una historia cósmica.",
+     "https://handcata.streamlit.app", "🌟 Crear Historia", "9.jpg"),
+    ("🎙️ Control por Voz", "Controla la nave mediante comandos de voz.",
+     "https://ctrlvoice-cata.streamlit.app", "🎧 Activar Control", "10.jpg"),
+    ("🖌️ Reconocimiento de Dibujo", "La IA intenta descifrar tu figura celeste.",
+     "https://hist-infcata.streamlit.app", "🖍️ Reconocer Dibujo", "11.jpg"),
+    ("💡 Control de Luz", "Activa sistemas luminosos interestelares.",
+     "https://sendcmqtt-cata.streamlit.app", "💫 Encender Luz", "12.jpg"),
+    ("📖 Explorador de Textos", "Analiza textos de cualquier idioma con poder cósmico.",
+     "https://tf-idfcata.streamlit.app", "📚 Iniciar Exploración", "13.jpg")
 ]
 
 # --- MOSTRAR TARJETAS ---
