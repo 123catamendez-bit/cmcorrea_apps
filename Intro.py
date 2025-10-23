@@ -117,7 +117,7 @@ proyectos = [
     ("🗣️ Chat Cósmico con PDF", "Habla con tus archivos y recibe respuestas del universo.", "https://chatpdfejercicioisa.streamlit.app/", "📡 Conectar Chat"),
     ("🌠 Historias Estelares", "Dibuja algo y deja que la IA genere una historia cósmica.", "https://handcata.streamlit.app", "🌟 Crear Historia"),
     ("🎙️ Control por Voz", "Controla la nave mediante comandos de voz.", "https://ctrlvoice-cata.streamlit.app", "🎧 Activar Control"),
-    ("🖌️ Reconocimiento de Dibujo", "La IA intenta descifrar tu figura celeste.", "https://reconnocer-el-dibujo.streamlit.app/", "🖍️ Reconocer Dibujo"),
+    ("🖌️ Reconocimiento de Dibujo", "La IA intenta descifrar tu figura celeste.", "https://hist-infcata.streamlit.app", "🖍️ Reconocer Dibujo"),
     ("💡 Control de Luz", "Controla sistemas luminosos interestelares.", "https://enviarcmqttisa.streamlit.app/", "💫 Encender Luz"),
     ("📖 Explorador de Textos", "Analiza textos de cualquier idioma.", "https://isabela-vinasco-docs.streamlit.app/", "📚 Iniciar Exploración")
 ]
