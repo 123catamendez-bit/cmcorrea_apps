@@ -113,38 +113,38 @@ with st.sidebar:
 # --- CONFIGURACIÓN DE COLUMNAS ---
 col1, col2, col3 = st.columns(3, gap="large")
 
-# --- PROYECTOS (Título, Descripción, Link, Botón, Imagen) ---
+# --- PROYECTOS CON IMÁGENES ONLINE ---
 proyectos = [
     ("🚀 Mi Primera Misión", "Mi primer lanzamiento hacia el espacio del código.",
-     "https://introcata.streamlit.app", "🌌 Lanzar Misión", "// AQUÍ TU IMAGEN: images/mi_primera_mision.png"),
+     "https://introcata.streamlit.app", "🌌 Lanzar Misión", "al.jpg"),
     ("🌠 Voz Estelar", "Convierte tus pensamientos en ondas sonoras cósmicas.",
-     "https://texto-audio-cata.streamlit.app", "🎤 Activar Voz Estelar", "// AQUÍ TU IMAGEN: images/voz_estelar.png"),
+     "https://texto-audio-cata.streamlit.app", "🎤 Activar Voz Estelar", "1.jpg"),
     ("💫 Radar de Energía", "Analiza la energía emocional de tus mensajes.",
-     "https://txtblobcata.streamlit.app", "💭 Escanear Energía", "// AQUÍ TU IMAGEN: images/radar_energia.png"),
+     "https://txtblobcata.streamlit.app", "💭 Escanear Energía", "2.jpg"),
     ("🖐️ Gestos Cósmicos", "Controla tu nave mediante visión artificial.",
-     "https://yolocata.streamlit.app", "🪐 Activar Gestos", "// AQUÍ TU IMAGEN: images/gestos_cosmicos.png"),
+     "https://yolocata.streamlit.app", "🪐 Activar Gestos", "3.jpg"),
     ("🛰️ Visión Orbital", "Sube una imagen y detecta objetos flotando en el espacio.",
-     "https://tmcata.streamlit.app", "🔭 Iniciar Visión Orbital", "// AQUÍ TU IMAGEN: images/vision_orbital.png"),
+     "https://tmcata.streamlit.app", "🔭 Iniciar Visión Orbital", "4.jpg"),
     ("🪶 Traductor de Ecos", "Convierte tus transmisiones de voz en texto interplanetario.",
-     "https://traductor-cata.streamlit.app", "🛰️ Abrir Traductor", "// AQUÍ TU IMAGEN: images/traductor_ecos.png"),
+     "https://traductor-cata.streamlit.app", "🛰️ Abrir Traductor", "5.jpg"),
     ("📡 Escáner Galáctico", "Analiza archivos con IA estelar.",
-     "https://tdfesp-cata.streamlit.app", "📄 Analizar Archivo", "// AQUÍ TU IMAGEN: images/escaner_galactico.png"),
+     "https://tdfesp-cata.streamlit.app", "📄 Analizar Archivo", "6.jpg"),
     ("👁️ Detector Alienígena", "Escanea rostros del cosmos y detecta seres de otra dimensión.",
-     "https://ocr-audio-cata.streamlit.app", "👽 Activar Detección", "// AQUÍ TU IMAGEN: images/detector_alien.png"),
+     "https://ocr-audio-cata.streamlit.app", "👽 Activar Detección", "ali.jpg"),
     ("🔤 OCR Estelar", "Convierte texto desde imágenes espaciales.",
-     "https://ocrcata.streamlit.app", "🪞 Iniciar OCR", "// AQUÍ TU IMAGEN: images/ocr_estelar.png"),
+     "https://ocrcata.streamlit.app", "🪞 Iniciar OCR", "7.jpg"),
     ("🗣️ Chat Cósmico con PDF", "Habla con tus archivos y recibe respuestas del universo.",
-     "https://chatcata.streamlit.app", "📡 Conectar Chat", "// AQUÍ TU IMAGEN: images/chat_cosmico.png"),
+     "https://chatcata.streamlit.app", "📡 Conectar Chat", "8.jpg"),
     ("🌠 Historias Estelares", "Dibuja algo y deja que la IA cree una historia cósmica.",
-     "https://handcata.streamlit.app", "🌟 Crear Historia", "// AQUÍ TU IMAGEN: images/historias_estelares.png"),
+     "https://handcata.streamlit.app", "🌟 Crear Historia", "9.jpg"),
     ("🎙️ Control por Voz", "Controla la nave mediante comandos de voz.",
-     "https://ctrlvoice-cata.streamlit.app", "🎧 Activar Control", "// AQUÍ TU IMAGEN: images/control_voz.png"),
+     "https://ctrlvoice-cata.streamlit.app", "🎧 Activar Control", "10.jpg"),
     ("🖌️ Reconocimiento de Dibujo", "La IA intenta descifrar tu figura celeste.",
-     "https://hist-infcata.streamlit.app", "🖍️ Reconocer Dibujo", "// AQUÍ TU IMAGEN: images/reconocimiento_dibujo.png"),
+     "https://hist-infcata.streamlit.app", "🖍️ Reconocer Dibujo", "11.jpg"),
     ("💡 Control de Luz", "Activa sistemas luminosos interestelares.",
-     "https://sendcmqtt-cata.streamlit.app", "💫 Encender Luz", "// AQUÍ TU IMAGEN: images/control_luz.png"),
+     "https://sendcmqtt-cata.streamlit.app", "💫 Encender Luz", "12.jpg"),
     ("📖 Explorador de Textos", "Analiza textos de cualquier idioma con poder cósmico.",
-     "https://tf-idfcata.streamlit.app", "📚 Iniciar Exploración", "// AQUÍ TU IMAGEN: images/explorador_textos.png")
+     "https://tf-idfcata.streamlit.app", "📚 Iniciar Exploración", "13.jpg")
 ]
 
 # --- MOSTRAR TARJETAS ---
@@ -152,11 +152,7 @@ for i, (titulo, texto, link, boton, imagen) in enumerate(proyectos):
     col = [col1, col2, col3][i % 3]
     with col:
         st.markdown('<div class="card">', unsafe_allow_html=True)
-        
-        # 🌌 Imagen del proyecto
-        st.image(imagen.replace("// AQUÍ TU IMAGEN: ", ""), use_column_width=True)
-
-        # 🌠 Texto y botón
+        st.image(imagen, use_container_width=True)
         st.subheader(titulo)
         st.write(texto)
         st.markdown(f"""
@@ -164,5 +160,4 @@ for i, (titulo, texto, link, boton, imagen) in enumerate(proyectos):
             <button>{boton}</button>
         </a>
         """, unsafe_allow_html=True)
-        
         st.markdown('</div>', unsafe_allow_html=True)
