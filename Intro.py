@@ -50,7 +50,7 @@ st.subheader("🪐 Mi Primera Misión")
 st.write("Mi primer lanzamiento al espacio del código. Una app sencilla, pero el inicio de un viaje intergaláctico hacia la Inteligencia Artificial.")
 st.markdown(
     """
-    <a href="https://miprimeraappisa.streamlit.app/" target="_blank">
+    <a href="https://introcata.streamlit.app">
         <button style="
             background-color:#4b56d2;
             color:white;
@@ -79,7 +79,7 @@ with col1:
     st.write("Convierte tus pensamientos en voz galáctica. Ideal para explorar nuevos idiomas del universo digital.")
     st.markdown(
         """
-        <a href="https://intro3-cv4kbcjgxbiveh8ph2kmyp.streamlit.app/" target="_blank">
+        <a href="https://texto-audio-cata.streamlit.app" target="_blank">
             <button style="
                 background-color:#4b56d2;
                 color:white;
@@ -96,13 +96,13 @@ with col1:
         unsafe_allow_html=True
     )
 
-    st.subheader("💫 Radar de Emociones")
+    st.subheader("💫 Radar de Energia")
     # image = Image.open('sentimientos.jpg')
     # st.image(image, width=200)
     st.write("Analiza las emociones ocultas en tus mensajes. ¿Estás orbitando la alegría, la calma o el caos?")
     st.markdown(
     """
-    <a href="https://isabelavinasco.streamlit.app/" target="_blank">
+    <a href="https://txtblobcata.streamlit.app" target="_blank">
         <button style="
             background-color:#4b56d2;
             color:white;
@@ -112,7 +112,7 @@ with col1:
             font-size:16px;
             cursor:pointer;
         ">
-            💭 Escanear Emociones
+            💭 Escanear Energia
         </button>
     </a>
     """,
@@ -125,7 +125,7 @@ with col1:
     st.write("Deja que tus movimientos hablen por ti. Controla la nave con gestos captados por visión espacial de IA.")
     st.markdown(
     """
-    <a href="https://yolov5-isa.streamlit.app/" target="_blank">
+    <a href="https://yolocata.streamlit.app" target="_blank">
         <button style="
             background-color:#4b56d2;
             color:white;
@@ -148,7 +148,7 @@ with col1:
     st.write("Sube una imagen y deja que el radar de IA detecte qué objetos flotan en tu universo visual.")
     st.markdown(
     """
-    <a href="https://visionapp-isa-lpq3fitf2jwnkastes8odi.streamlit.app/" target="_blank">
+    <a href="https://tmcata.streamlit.app" target="_blank">
         <button style="
             background-color:#4b56d2;
             color:white;
@@ -177,7 +177,7 @@ with col2:
     st.write("Convierte mensajes de audio en texto estelar. Ideal para descifrar transmisiones interplanetarias.")
     st.markdown(
     """
-    <a href="https://intro2-fojj4mqk3pvfuy4gb5twvg.streamlit.app/" target="_blank">
+    <a href="https://traductor-cata.streamlit.app" target="_blank">
         <button style="
             background-color:#4b56d2;
             color:white;
@@ -298,7 +298,7 @@ with col3:
     st.write("Dibuja algo y deja que la IA cree una historia galáctica basada en tu arte. Donde cada trazo genera una nueva aventura.")
     st.markdown(
     """
-    <a href="https://historia-infantil.streamlit.app/" target="_blank">
+    <a href="https://handcata.streamlit.app" target="_blank">
         <button style="
             background-color:#4b56d2;
             color:white;
