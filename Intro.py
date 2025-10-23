@@ -1,24 +1,65 @@
 import streamlit as st
-# from PIL import Image  # ← Descomenta cuando tengas las imágenes
 
 # --- CONFIGURACIÓN GENERAL ---
 st.set_page_config(page_title="🌌 IA Galáctica", layout="wide")
 
-# --- FONDO GALÁCTICO ---
+# --- FONDO ANIMADO GALÁCTICO ---
 page_bg = """
 <style>
+/* Fondo del universo */
 [data-testid="stAppViewContainer"] {
-    background-color: #0b0f1a;
-    background-image: radial-gradient(circle at 20% 20%, #16213e, #0b0f1a);
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+    position: relative;
 }
-[data-testid="stSidebar"] {
-    background-color: #1a1f2e;
+
+/* Estrellas animadas */
+@keyframes moveStars {
+  from {transform: translateY(0);}
+  to {transform: translateY(-1000px);}
 }
+
+.stars, .stars2, .stars3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: repeat;
+  background-size: contain;
+  animation: moveStars linear infinite;
+  z-index: -1;
+}
+
+/* Capas de estrellas (diferentes tamaños y velocidades) */
+.stars {
+  background-image: radial-gradient(2px 2px at 20px 20px, white, transparent),
+                    radial-gradient(1px 1px at 60px 80px, white, transparent),
+                    radial-gradient(1.5px 1.5px at 130px 40px, white, transparent);
+  animation-duration: 100s;
+  opacity: 0.6;
+}
+.stars2 {
+  background-image: radial-gradient(1px 1px at 10px 10px, #bcdfff, transparent),
+                    radial-gradient(2px 2px at 80px 120px, #bcdfff, transparent);
+  animation-duration: 200s;
+  opacity: 0.4;
+}
+.stars3 {
+  background-image: radial-gradient(1.2px 1.2px at 40px 60px, #ffffff, transparent),
+                    radial-gradient(1px 1px at 90px 100px, #ffffff, transparent);
+  animation-duration: 300s;
+  opacity: 0.2;
+}
+
+/* Textos */
 h1, h2, h3, p {
     color: #e0e0e0;
     text-align: center;
     font-family: 'Trebuchet MS', sans-serif;
 }
+
+/* Botones */
 button {
     display: block;
     margin: 0 auto;
@@ -29,6 +70,10 @@ a, a:visited, a:hover, a:active {
     box-shadow: none !important;
 }
 </style>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
 """
 st.markdown(page_bg, unsafe_allow_html=True)
 
@@ -42,205 +87,71 @@ with st.sidebar:
     st.write("Bienvenido a bordo de la *Nave Cata-IA*. Aquí encontrarás todas mis exploraciones en el cosmos de la Inteligencia Artificial.")
     st.write("Pulsa un botón para iniciar el viaje interplanetario correspondiente a cada proyecto. 🪐")
 
-# --- COLUMNAS PRINCIPALES ---
+# --- COLUMNAS ---
 col1, col2, col3 = st.columns(3, gap="large")
 
 # ======== COLUMNA 1 ========
 with col1:
     st.markdown("<div style='text-align:center'>", unsafe_allow_html=True)
-
-    # 1️⃣ Primera misión
-    st.subheader("🚀 Mi Primera Misión")
-    # st.image('app1.jpg', width=200)
-    st.write("Mi primer lanzamiento hacia el espacio del código. Una app sencilla que marcó el inicio de mi viaje galáctico en IA.")
-    st.markdown("""
-    <a href="https://introcata.streamlit.app" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            🌌 Lanzar Misión
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 2️⃣ Texto a Voz
-    st.subheader("🌠 Voz Estelar (Texto a Voz)")
-    # st.image('texto_avoz.jpg', width=200)
-    st.write("Convierte tus pensamientos en ondas sonoras cósmicas con esta app de texto a voz impulsada por IA.")
-    st.markdown("""
-    <a href="https://texto-audio-cata.streamlit.app" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            🎤 Activar Voz Estelar
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 3️⃣ Radar de Energía (Sentimientos)
-    st.subheader("💫 Radar de Energía (Sentimientos)")
-    # st.image('sentimientos.jpg', width=200)
-    st.write("Analiza la energía emocional de tus mensajes y descubre si vibras en modo estelar o en eclipse. 🌕")
-    st.markdown("""
-    <a href="https://txtblobcata.streamlit.app" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            💭 Escanear Energía
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 4️⃣ Gestos Cósmicos
-    st.subheader("🖐️ Gestos Cósmicos")
-    # st.image('gesto.jpg', width=200)
-    st.write("Controla tu nave espacial mediante gestos captados por visión artificial galáctica. ✋")
-    st.markdown("""
-    <a href="https://yolocata.streamlit.app" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            🪐 Activar Gestos Cósmicos
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 5️⃣ Visión Orbital (Reconocimiento de Objetos)
-    st.subheader("🛰️ Visión Orbital (Objetos)")
-    # st.image('vision_app.jpg', width=200)
-    st.write("Sube una imagen y permite que el radar galáctico detecte los objetos flotando en tu universo visual.")
-    st.markdown("""
-    <a href="https://tmcata.streamlit.app" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            🔭 Iniciar Visión Orbital
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
+    proyectos_col1 = [
+        ("🚀 Mi Primera Misión", "Mi primer lanzamiento hacia el espacio del código. Una app sencilla que marcó el inicio de mi viaje galáctico en IA.", "https://introcata.streamlit.app", "🌌 Lanzar Misión"),
+        ("🌠 Voz Estelar (Texto a Voz)", "Convierte tus pensamientos en ondas sonoras cósmicas con esta app de texto a voz impulsada por IA.", "https://texto-audio-cata.streamlit.app", "🎤 Activar Voz Estelar"),
+        ("💫 Radar de Energía (Sentimientos)", "Analiza la energía emocional de tus mensajes y descubre si vibras en modo estelar o en eclipse.", "https://txtblobcata.streamlit.app", "💭 Escanear Energía"),
+        ("🖐️ Gestos Cósmicos", "Controla tu nave espacial mediante gestos captados por visión artificial galáctica.", "https://yolocata.streamlit.app", "🪐 Activar Gestos Cósmicos"),
+        ("🛰️ Visión Orbital (Objetos)", "Sube una imagen y permite que el radar galáctico detecte los objetos flotando en tu universo visual.", "https://tmcata.streamlit.app", "🔭 Iniciar Visión Orbital"),
+    ]
+    for titulo, texto, link, boton in proyectos_col1:
+        st.subheader(titulo)
+        st.write(texto)
+        st.markdown(f"""
+        <a href="{link}" target="_blank">
+            <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
+                {boton}
+            </button>
+        </a>
+        """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
-
 
 # ======== COLUMNA 2 ========
 with col2:
     st.markdown("<div style='text-align:center'>", unsafe_allow_html=True)
-
-    # 6️⃣ Traductor de Ecos (Audio a Texto)
-    st.subheader("🪶 Traductor de Ecos (Audio a Texto)")
-    # st.image('audio_atexto.jpg', width=200)
-    st.write("Convierte tus transmisiones de voz en texto interplanetario. 📡")
-    st.markdown("""
-    <a href="https://traductor-cata.streamlit.app" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            🛰️ Abrir Traductor de Ecos
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 7️⃣ Escáner de Documentos Galácticos
-    st.subheader("📡 Escáner de Documentos Galácticos")
-    # st.image('analisis_texto.jpg', width=200)
-    st.write("Analiza archivos de civilizaciones antiguas con el poder de la IA estelar. 📜")
-    st.markdown("""
-    <a href="https://textoesp.streamlit.app/" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            📄 Analizar Documento Galáctico
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 8️⃣ Detector de Rostros Alienígenas
-    st.subheader("👁️ Detector de Rostros Alienígenas")
-    # st.image('rostros.jpg', width=200)
-    st.write("Escanea el cosmos en busca de rostros conocidos… o desconocidos. 👽")
-    st.markdown("""
-    <a href="https://ocr-isa2.streamlit.app/" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            👽 Activar Detección Alienígena
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 9️⃣ OCR Estelar
-    st.subheader("🔤 OCR Estelar")
-    # st.image('ocr_final.jpg', width=200)
-    st.write("Convierte texto desde imágenes espaciales, con precisión interestelar. 📖")
-    st.markdown("""
-    <a href="https://isavinasco.streamlit.app/" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            🪞 Iniciar OCR Estelar
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 🔟 Chat Cósmico con PDF
-    st.subheader("🗣️ Chat Cósmico con PDF")
-    # st.image('chat_pdf.jpg', width=200)
-    st.write("Habla con tus archivos y recibe respuestas del universo digital. 🌌")
-    st.markdown("""
-    <a href="https://chatpdfejercicioisa.streamlit.app/" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            📡 Conectar Chat Cósmico
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
+    proyectos_col2 = [
+        ("🪶 Traductor de Ecos (Audio a Texto)", "Convierte tus transmisiones de voz en texto interplanetario.", "https://traductor-cata.streamlit.app", "🛰️ Abrir Traductor de Ecos"),
+        ("📡 Escáner de Documentos Galácticos", "Analiza archivos de civilizaciones antiguas con el poder de la IA estelar.", "https://textoesp.streamlit.app/", "📄 Analizar Documento Galáctico"),
+        ("👁️ Detector de Rostros Alienígenas", "Escanea el cosmos en busca de rostros conocidos… o desconocidos.", "https://ocr-isa2.streamlit.app/", "👽 Activar Detección Alienígena"),
+        ("🔤 OCR Estelar", "Convierte texto desde imágenes espaciales, con precisión interestelar.", "https://isavinasco.streamlit.app/", "🪞 Iniciar OCR Estelar"),
+        ("🗣️ Chat Cósmico con PDF", "Habla con tus archivos y recibe respuestas del universo digital.", "https://chatpdfejercicioisa.streamlit.app/", "📡 Conectar Chat Cósmico"),
+    ]
+    for titulo, texto, link, boton in proyectos_col2:
+        st.subheader(titulo)
+        st.write(texto)
+        st.markdown(f"""
+        <a href="{link}" target="_blank">
+            <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
+                {boton}
+            </button>
+        </a>
+        """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
-
 
 # ======== COLUMNA 3 ========
 with col3:
     st.markdown("<div style='text-align:center'>", unsafe_allow_html=True)
-
-    # 11️⃣ Creador de Historias Estelares
-    st.subheader("🌠 Creador de Historias Estelares")
-    # st.image('historia.jpg', width=200)
-    st.write("Dibuja algo y deja que la IA genere una historia cósmica a partir de tu arte. 🎨")
-    st.markdown("""
-    <a href="https://handcata.streamlit.app" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            🌟 Crear Historia Estelar
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 12️⃣ Control por Voz Galáctico
-    st.subheader("🎙️ Control por Voz Galáctico")
-    # st.image('voz_control.jpg', width=200)
-    st.write("Controla la nave mediante comandos de voz impulsados por IA interplanetaria. 🔊")
-    st.markdown("""
-    <a href="https://ctrlvoiceisa.streamlit.app/" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            🎧 Activar Control por Voz
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 13️⃣ Reconocimiento de Dibujo Estelar
-    st.subheader("🖌️ Reconocimiento de Dibujo Estelar")
-    # st.image('dibujo.jpg', width=200)
-    st.write("La IA intentará descifrar qué figura celeste has dibujado. 🪶")
-    st.markdown("""
-    <a href="https://reconnocer-el-dibujo.streamlit.app/" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            🖍️ Reconocer Dibujo
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 14️⃣ Control de Luz Interestelar (IoT)
-    st.subheader("💡 Control de Luz Interestelar (IoT)")
-    # st.image('control_led.jpg', width=200)
-    st.write("Controla sistemas luminosos de la nave mediante tecnología IoT y señales estelares.")
-    st.markdown("""
-    <a href="https://enviarcmqttisa.streamlit.app/" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            💫 Activar Control Lumínico
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
-    # 15️⃣ Explorador de Textos Universales
-    st.subheader("📖 Explorador de Textos Universales")
-    # st.image('texto_ingles.jpg', width=200)
-    st.write("Analiza textos en cualquier idioma y descubre su energía cósmica. 🌍")
-    st.markdown("""
-    <a href="https://isabela-vinasco-docs.streamlit.app/" target="_blank">
-        <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
-            📚 Iniciar Exploración Textual
-        </button>
-    </a>
-    """, unsafe_allow_html=True)
-
+    proyectos_col3 = [
+        ("🌠 Creador de Historias Estelares", "Dibuja algo y deja que la IA genere una historia cósmica a partir de tu arte.", "https://handcata.streamlit.app", "🌟 Crear Historia Estelar"),
+        ("🎙️ Control por Voz Galáctico", "Controla la nave mediante comandos de voz impulsados por IA interplanetaria.", "https://ctrlvoiceisa.streamlit.app/", "🎧 Activar Control por Voz"),
+        ("🖌️ Reconocimiento de Dibujo Estelar", "La IA intentará descifrar qué figura celeste has dibujado.", "https://reconnocer-el-dibujo.streamlit.app/", "🖍️ Reconocer Dibujo"),
+        ("💡 Control de Luz Interestelar (IoT)", "Controla sistemas luminosos de la nave mediante tecnología IoT y señales estelares.", "https://enviarcmqttisa.streamlit.app/", "💫 Activar Control Lumínico"),
+        ("📖 Explorador de Textos Universales", "Analiza textos en cualquier idioma y descubre su energía cósmica.", "https://isabela-vinasco-docs.streamlit.app/", "📚 Iniciar Exploración Textual"),
+    ]
+    for titulo, texto, link, boton in proyectos_col3:
+        st.subheader(titulo)
+        st.write(texto)
+        st.markdown(f"""
+        <a href="{link}" target="_blank">
+            <button style="background-color:#4b56d2;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:16px;cursor:pointer;">
+                {boton}
+            </button>
+        </a>
+        """, unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
