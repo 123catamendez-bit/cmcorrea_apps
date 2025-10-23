@@ -1,204 +1,187 @@
 import streamlit as st
 
-# --- CONFIGURACIÓN DE PÁGINA ---
-st.set_page_config(page_title="Nave Cata-IA 🚀", layout="wide")
+# 🌌 CONFIGURACIÓN GENERAL
+st.set_page_config(page_title="🌌 IA Galáctica", layout="wide")
 
-# --- CSS GALÁCTICO ---
-st.markdown("""
+# 🌠 --- FONDO GALÁCTICO ANIMADO ---
+page_bg = """
 <style>
-body {
-    background: radial-gradient(circle at 20% 20%, #1a002b, #0a0015 80%);
-    color: white;
+[data-testid="stAppViewContainer"] {
+    background: radial-gradient(ellipse at bottom, #0b0c28 0%, #05010d 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-h1, h2, h3 {
-    text-align: center;
+/* Fondo animado de estrellas */
+#galaxy-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
 }
 
-.tarjeta {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 25px;
+@keyframes moveStars {
+    from {transform: translateY(0);}
+    to {transform: translateY(-1000px);}
+}
+
+.stars, .stars2, .stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-repeat: repeat;
+    background-size: 1000px 1000px;
+    animation: moveStars linear infinite;
+}
+
+.stars { background-image: radial-gradient(1px 1px at 10px 20px, white, transparent),
+                         radial-gradient(2px 2px at 400px 200px, white, transparent),
+                         radial-gradient(1px 1px at 700px 600px, white, transparent);
+         animation-duration: 120s; opacity: 0.6; }
+
+.stars2 { background-image: radial-gradient(1px 1px at 30px 50px, #bcdfff, transparent),
+                          radial-gradient(2px 2px at 500px 800px, #bcdfff, transparent);
+          animation-duration: 240s; opacity: 0.4; }
+
+.stars3 { background-image: radial-gradient(1px 1px at 70px 90px, #ffffff, transparent),
+                          radial-gradient(2px 2px at 800px 400px, #ffffff, transparent);
+          animation-duration: 360s; opacity: 0.2; }
+
+/* Texto */
+h1, h2, h3, p {
+    color: #e0e0e0;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+/* Tarjetas galácticas */
+.card {
+    background-color: rgba(25, 20, 50, 0.85);
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px 10px;
+    box-shadow: 0 0 25px rgba(150, 100, 255, 0.25);
     text-align: center;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(180, 150, 255, 0.2);
+}
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 35px rgba(200, 150, 255, 0.4);
+}
+
+/* Imágenes dentro del cuadro */
+.card img {
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
     transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
 }
-
-.tarjeta:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 35px rgba(255, 150, 255, 0.3);
-}
-
-.tarjeta img {
-    width: 100%;
-    border-radius: 12px;
-}
-
-.boton-galactico {
-    background: linear-gradient(90deg, #6b00b6, #ff0084);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 10px 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.boton-galactico:hover {
-    box-shadow: 0 0 15px #ff66c4;
+.card img:hover {
     transform: scale(1.05);
 }
 
-.sidebar .sidebar-content {
-    background-color: #0d0221;
+/* Botones */
+button {
+    background: linear-gradient(90deg, #a770ef, #cf8bf3, #fdb99b);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.4s;
 }
+button:hover {
+    background: linear-gradient(90deg, #fdb99b, #cf8bf3, #a770ef);
+    transform: scale(1.08);
+}
+
+/* Contenedor animado */
+#galaxy-bg { pointer-events: none; }
 </style>
-""", unsafe_allow_html=True)
 
-# --- SIDEBAR ---
-st.sidebar.markdown("""
-🌠 **Panel de Misión**
+<div id="galaxy-bg">
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+</div>
+"""
 
-Bienvenida a la **Nave Cata-IA 🚀**
-Desde aquí puedes viajar a todos los mundos que has creado en tu cosmos digital.
-""")
+st.markdown(page_bg, unsafe_allow_html=True)
 
-# --- TÍTULO PRINCIPAL ---
+# 🌟 --- TITULOS PRINCIPALES ---
 st.title("🚀 Mis Aplicaciones IA Galácticas")
-st.markdown("Explora el universo digital — cada aplicación es un planeta brillante en mi constelación de Inteligencia Artificial 🌌")
+st.markdown("Explora el universo digital — cada aplicación es un planeta brillante en mi constelación de Inteligencia Artificial.")
 
-# --- DATOS DE LAS 15 APLICACIONES ---
-apps = [
-    {
-        "titulo": "Mi Primera Misión",
-        "descripcion": "Mi primer lanzamiento hacia el espacio del código.",
-        "imagen": "https://i.imgur.com/qIufhof.png",
-        "boton": "Lanzar Misión",
-        "link": "https://catalinamendezapps.streamlit.app/mi_primera_mision"
-    },
-    {
-        "titulo": "Voz Estelar",
-        "descripcion": "Convierte tus pensamientos en ondas sonoras cósmicas.",
-        "imagen": "https://i.imgur.com/AvyYtHx.png",
-        "boton": "Activar Voz Estelar",
-        "link": "https://catalinamendezapps.streamlit.app/voz_estelar"
-    },
-    {
-        "titulo": "Radar de Energía",
-        "descripcion": "Analiza la energía emocional de tus mensajes.",
-        "imagen": "https://i.imgur.com/VN2c4U2.png",
-        "boton": "Escanear Energía",
-        "link": "https://catalinamendezapps.streamlit.app/radar_energia"
-    },
-    # --- Agrega aquí tus otras 12 apps ---
-    {
-        "titulo": "Planeta Creativo",
-        "descripcion": "Explora ideas del universo de la imaginación.",
-        "imagen": "https://i.imgur.com/XVqfRrM.png",
-        "boton": "Explorar",
-        "link": "https://catalinamendezapps.streamlit.app/planeta_creativo"
-    },
-    {
-        "titulo": "Constelación Visual",
-        "descripcion": "Transforma tus imágenes en arte espacial.",
-        "imagen": "https://i.imgur.com/5HnHn2C.png",
-        "boton": "Crear Arte",
-        "link": "https://catalinamendezapps.streamlit.app/constelacion_visual"
-    },
-    {
-        "titulo": "Bitácora Galáctica",
-        "descripcion": "Registra tus viajes interplanetarios de IA.",
-        "imagen": "https://i.imgur.com/8emHuBq.png",
-        "boton": "Abrir Bitácora",
-        "link": "https://catalinamendezapps.streamlit.app/bitacora_galactica"
-    },
-    {
-        "titulo": "Nave de Traducción",
-        "descripcion": "Traduce mensajes a cualquier idioma del cosmos.",
-        "imagen": "https://i.imgur.com/kq9S3sF.png",
-        "boton": "Traducir",
-        "link": "https://catalinamendezapps.streamlit.app/nave_traduccion"
-    },
-    {
-        "titulo": "Mapa de Sentimientos",
-        "descripcion": "Explora las emociones del universo con IA.",
-        "imagen": "https://i.imgur.com/nwV3bKi.png",
-        "boton": "Explorar Mapa",
-        "link": "https://catalinamendezapps.streamlit.app/mapa_sentimientos"
-    },
-    {
-        "titulo": "Sistema Solar Creativo",
-        "descripcion": "Diseña tu propio sistema de apps con IA.",
-        "imagen": "https://i.imgur.com/XyGfQ9E.png",
-        "boton": "Diseñar Sistema",
-        "link": "https://catalinamendezapps.streamlit.app/sistema_solar"
-    },
-    {
-        "titulo": "Códigos Estelares",
-        "descripcion": "Descifra mensajes ocultos del espacio digital.",
-        "imagen": "https://i.imgur.com/ypynl5p.png",
-        "boton": "Descifrar",
-        "link": "https://catalinamendezapps.streamlit.app/codigos_estelares"
-    },
-    {
-        "titulo": "Eco Lunar",
-        "descripcion": "Escucha la resonancia emocional de tus textos.",
-        "imagen": "https://i.imgur.com/Du8A5GA.png",
-        "boton": "Escuchar Eco",
-        "link": "https://catalinamendezapps.streamlit.app/eco_lunar"
-    },
-    {
-        "titulo": "Centro de Comando",
-        "descripcion": "Administra todas tus misiones IA desde un punto.",
-        "imagen": "https://i.imgur.com/zoP4rWh.png",
-        "boton": "Entrar al Centro",
-        "link": "https://catalinamendezapps.streamlit.app/centro_comando"
-    },
-    {
-        "titulo": "Universo Sonoro",
-        "descripcion": "Convierte texto en melodías galácticas.",
-        "imagen": "https://i.imgur.com/N2rUxEr.png",
-        "boton": "Reproducir",
-        "link": "https://catalinamendezapps.streamlit.app/universo_sonoro"
-    },
-    {
-        "titulo": "Pulso Cósmico",
-        "descripcion": "Detecta la frecuencia emocional de tus ideas.",
-        "imagen": "https://i.imgur.com/yL6cU2g.png",
-        "boton": "Medir Pulso",
-        "link": "https://catalinamendezapps.streamlit.app/pulso_cosmico"
-    },
-    {
-        "titulo": "Nube de Ideas",
-        "descripcion": "Crea lluvias de inspiración artificial.",
-        "imagen": "https://i.imgur.com/Vf8h3Ue.png",
-        "boton": "Lluvia de Ideas",
-        "link": "https://catalinamendezapps.streamlit.app/nube_ideas"
-    },
-    {
-        "titulo": "Portales Interdimensionales",
-        "descripcion": "Abre puertas a nuevas realidades digitales.",
-        "imagen": "https://i.imgur.com/kKQ6Mfq.png",
-        "boton": "Abrir Portal",
-        "link": "https://catalinamendezapps.streamlit.app/portales"
-    },
+with st.sidebar:
+    st.subheader("🪐 Panel de Misión")
+    st.write("Bienvenido a la **Nave Cata-IA** 🛸. Desde aquí puedes viajar a todos los mundos que he creado en el cosmos digital.")
+
+# --- CONFIGURACIÓN DE COLUMNAS ---
+col1, col2, col3 = st.columns(3, gap="large")
+
+# --- PROYECTOS CON IMÁGENES ONLINE ---
+proyectos = [
+    ("🚀 Mi Primera Misión", "Mi primer lanzamiento hacia el espacio del código.",
+     "https://introcata.streamlit.app", "🌌 Lanzar Misión", "al.jpg"),
+
+    ("🌠 Voz Estelar", "Convierte tus pensamientos en ondas sonoras cósmicas.",
+     "https://texto-audio-cata.streamlit.app", "🎤 Activar Voz Estelar", "1.jpg"),
+
+    ("💫 Radar de Energía", "Analiza la energía emocional de tus mensajes.",
+     "https://txtblobcata.streamlit.app", "💭 Escanear Energía", "2.jpg"),
+
+    ("🖐️ Gestos Cósmicos", "Controla tu nave mediante visión artificial.",
+     "https://yolocata.streamlit.app", "🪐 Activar Gestos", "3.jpg"),
+
+    ("🛰️ Visión Orbital", "Sube una imagen y detecta objetos flotando en el espacio.",
+     "https://tmcata.streamlit.app", "🔭 Iniciar Visión Orbital", "4.jpg"),
+
+    ("🪶 Traductor de Ecos", "Convierte tus transmisiones de voz en texto interplanetario.",
+     "https://traductor-cata.streamlit.app", "🛰️ Abrir Traductor", "5.jpg"),
+
+    ("📡 Escáner Galáctico", "Analiza archivos con IA estelar.",
+     "https://tdfesp-cata.streamlit.app", "📄 Analizar Archivo", "6.jpg"),
+
+    ("👁️ Detector Alienígena", "Escanea rostros del cosmos y detecta seres de otra dimensión.",
+     "https://ocr-audio-cata.streamlit.app", "👽 Activar Detección", "ali.jpg"),
+
+    ("🔤 OCR Estelar", "Convierte texto desde imágenes espaciales.",
+     "https://ocrcata.streamlit.app", "🪞 Iniciar OCR", "7.jpg"),
+
+    ("🗣️ Chat Cósmico con PDF", "Habla con tus archivos y recibe respuestas del universo.",
+     "https://chatcata.streamlit.app", "📡 Conectar Chat", "8.jpg"),
+
+    ("🌠 Historias Estelares", "Dibuja algo y deja que la IA cree una historia cósmica.",
+     "https://handcata.streamlit.app", "🌟 Crear Historia", "9.jpg"),
+
+    ("🎙️ Control por Voz", "Controla la nave mediante comandos de voz.",
+     "https://ctrlvoice-cata.streamlit.app", "🎧 Activar Control", "10.jpg"),
+
+    ("🖌️ Reconocimiento de Dibujo", "La IA intenta descifrar tu figura celeste.",
+     "https://hist-infcata.streamlit.app", "🖍️ Reconocer Dibujo", "11.jpg"),
+
+    ("💡 Control de Luz", "Activa sistemas luminosos interestelares.",
+     "https://sendcmqtt-cata.streamlit.app", "💫 Encender Luz", "12.jpg"),
+
+    ("📖 Explorador de Textos", "Analiza textos de cualquier idioma con poder cósmico.",
+     "https://tf-idfcata.streamlit.app", "📚 Iniciar Exploración", "13.jpg")
 ]
 
-# --- MOSTRAR LAS TARJETAS EN FILAS DE 3 ---
-cols = st.columns(3)
-for i, app in enumerate(apps):
-    with cols[i % 3]:
+# --- MOSTRAR TARJETAS EN CUADROS ---
+for i, (titulo, texto, link, boton, imagen) in enumerate(proyectos):
+    col = [col1, col2, col3][i % 3]
+    with col:
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.image(imagen, use_container_width=True)
+        st.subheader(titulo)
+        st.write(texto)
         st.markdown(f"""
-        <div class="tarjeta">
-            <img src="{app['imagen']}" alt="{app['titulo']}">
-            <h3>{app['titulo']}</h3>
-            <p>{app['descripcion']}</p>
-            <a href="{app['link']}" target="_blank">
-                <button class="boton-galactico">{app['boton']}</button>
+            <a href="{link}" target="_blank">
+                <button>{boton}</button>
             </a>
-        </div>
         """, unsafe_allow_html=True)
-        if (i + 1) % 3 == 0:
-            st.write("")
+        st.markdown('</div>', unsafe_allow_html=True)
